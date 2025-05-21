@@ -1,39 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Calculadora </title>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-    <script>
-        let operador = prompt("Escolha uma operação +, -, *, /");
-        let numero1 = parseInt(prompt("Digite o primeiro valor: "));
-        let numero2 = parseInt(prompt("Digite o segundo valor: "));
-        let resultado;
+    <!-- Top bar com botões -->
+    <div class="top-bar">
+        <button id="toggle-tema">Tema</button>
+        <button id="toggle-historico">Histórico</button>
+        <button id="toggle-calculadora">Científica</button>
+    </div>
 
-        switch (operador) {
-            case '+':
-                resultado = numero1 + numero2;
-                break;
-            case '-':
-                resultado = numero1 - numero2;
-                break;
-            case '*':
-                resultado = numero1 * numero2;
-                break;
-            case '/':
-                resultado = numero1 / numero2;
-                break;
-            default:
-                resultado = "Selecione uma operação válida.";
-        }
+    <!-- Tela de Display -->
+    <div class="calculadora">
+        <div class="display" id="display">0</div>
 
-        alert("O resultado é " + resultado);
-        
-    </script>
+        <!-- Botões da calculadora básica -->
+        <div class="botoes" id="botoes-basicos">
+            <button value="7">7</button>
+            <button value="8">8</button>
+            <button value="9">9</button>
+            <button value="/">/</button>
+            <button value="4">4</button>
+            <button value="5">5</button>
+            <button value="6">6</button>
+            <button value="*">*</button>
+            <button value="1">1</button>
+            <button value="2">2</button>
+            <button value="3">3</button>
+            <button value="-">-</button>
+            <button value="0">0</button>
+            <button value="C">C</button>
+            <button value="=">=</button>
+            <button value="+">+</button>
+        </div>
+
+        <!-- Botões da calculadora científica (inicialmente oculta) -->
+        <div class="cientifica" id="cientifica-botoes" style="display: none;">
+            <button value="sin">sin</button>
+            <button value="cos">cos</button>
+            <button value="tan">tan</button>
+            <button value="log">log</button>
+            <button value="ln">ln</button>
+            <button value="^2">^2</button>
+            <button value="√">√</button>
+
+            <!-- Botões básicos também na científica -->
+            <button value="7">7</button>
+            <button value="8">8</button>
+            <button value="9">9</button>
+            <button value="/">/</button>
+            <button value="4">4</button>
+            <button value="5">5</button>
+            <button value="6">6</button>
+            <button value="*">*</button>
+            <button value="1">1</button>
+            <button value="2">2</button>
+            <button value="3">3</button>
+            <button value="-">-</button>
+            <button value="0">0</button>
+            <button value="C">C</button>
+            <button value="=">=</button>
+            <button value="+">+</button>
+        </div>
+    </div>
+
+    <!-- Histórico -->
+    <div class="historico-container" id="historico-container" style="display: none;">
+        <h2>Histórico</h2>
+        <ul id="historico"></ul>
+        <button id="limpar-historico" class="limpar-historico">Limpar Histórico</button>
+        <button onclick="voltarCalculadora()">Voltar</button>
+    </div>
+
+    <script src="assets/scripts/calculadora.js"></script>
+    <script src="assets/scripts/cientifica.js"></script>
+    <script src="assets/scripts/historico.js"></script>
+    <script src="assets/scripts/theme.js"></script>
 </body>
-
 </html>

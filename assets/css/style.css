@@ -1,0 +1,174 @@
+/* Variáveis de Cores */
+:root {
+    --primary: #00c896;
+    --secondary: #eeeeee;
+    --bg: #ffffff;
+    --text: #222;
+    --button-bg: #f3f3f3;
+    --button-text: #222;
+    --display-bg: #1e1e1e;
+    --display-text: #00ffb3;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+body.dark {
+    --bg: #121212;
+    --text: #f1f1f1;
+    --button-bg: #333;
+    --button-text: #f1f1f1;
+    --display-bg: #1e1e1e;
+    --display-text: #00ffb3;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Reset de margin e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Estilo geral do body */
+body {
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: var(--transition);
+}
+
+/* Barra superior com ajustes nos botões */
+.top-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 360px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 12px;
+    font-size: 1.1em;
+    transition: var(--transition);
+    background: var(--button-bg);
+    color: var(--button-text);
+    box-shadow: 0 3px 6px var(--shadow);
+}
+
+/* Botões principais com efeito de hover */
+button:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+#toggle-calculadora {
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Estilo da calculadora */
+.calculadora {
+    background: var(--bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 12px 24px var(--shadow);
+    max-width: 360px;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+/* Estilo da tela de exibição */
+.display {
+    background: var(--display-bg);
+    color: var(--display-text);
+    font-size: 2.4em;
+    text-align: right;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    min-height: 60px;
+    overflow-x: auto;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+/* Estilo da grade de botões */
+.botoes,
+.cientifica {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+/* Estilo do botão de científica */
+.cientifica button {
+    background: #007e66;
+    color: white;
+}
+
+.cientifica button:hover {
+    background: #00b38f;
+}
+
+.botoes button,
+.cientifica button {
+    padding: 16px;
+    font-size: 1.2em;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 6px var(--shadow);
+}
+
+button.clicked {
+    animation: pulse 0.2s ease;
+}
+
+/* Histórico */
+.historico-container {
+    display: none;
+    background: var(--bg);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 16px var(--shadow);
+    max-width: 360px;
+    width: 100%;
+    transition: var(--transition);
+}
+
+.historico-container h2 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+#historico {
+    list-style-type: none;
+    max-height: 150px;
+    overflow-y: auto;
+    padding-left: 0;
+}
+
+#historico li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--secondary);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Animações */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
